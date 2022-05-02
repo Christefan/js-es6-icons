@@ -112,16 +112,15 @@ const icons = [
         type: 'user'
         }
     ];
-    const inconColors = ['blue', 'orange', 'purple'];
-    
+
+
 
 
 const container = document.querySelector(".container-box");
-console.log(container)
-
-
-
-icons.forEach((element) => {
+mostratutto(icons);
+// console.log(container)
+function mostratutto(risultato){
+	risultato.forEach((element) => {
 	let newElement = document.createElement("div");
 	let color; 
 	//Utilizzando un confronto tra i tipi all' interno del array di oggetti, inseriamo il colore specifico
@@ -134,14 +133,50 @@ icons.forEach((element) => {
 	}
 	//stampa su console
 	console.log(color);
-	
+
 	newElement.classList.add("box");
 	newElement.innerHTML += `
 		<i class = "${element.family} ${element.prefix}${element.name} ${color}"></i> 
-		<p>${element.name}</p> `
+		<p>${element.name.toUpperCase()}</p> `
 		;
 		
 	container.append(newElement);
 });
+}
+const selected = document.getElementById('selection');
 
-
+selected.addEventListener("click",//prova funzionamento change
+	function() {
+	
+		container.innerHTML="";
+		if (this.value === 'ALL') {
+			const choice = icons.filter((element) => {
+			return true;
+			});
+		} else if(this.value === 'animal'){
+	 		choice = icons.filter((element) => {
+	 			if(element.type === 'animal'){
+	 			return true;
+	 		}
+	 		return false;
+	 		});
+	 		}else if(this.value === 'vegetable'){
+				choice = icons.filter((element) => {
+					if(element.type === "vegetable"){
+	 				return true;
+				}
+				return false;
+	 		});
+	 		} else {
+	 			choice = icons.filter((element) => {
+	 				if(element.type === "user"){
+	 				return true;
+	 			}
+	 			return false;
+	 		});
+			
+			}
+	 		mostratutto(choice);
+		
+	 }
+);
