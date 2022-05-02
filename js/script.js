@@ -149,17 +149,18 @@ selected.addEventListener("click",//prova funzionamento change
 	function() {
 	
 		container.innerHTML="";
-		if (this.value === 'ALL') {
-			const choice = icons.filter((element) => {
-			return true;
-			});
-		} else if(this.value === 'animal'){
+		if (this.value === 'all') {
+			mostratutto(icons);
+		}
+		 else{ 
+			if(this.value === 'animal'){
 	 		choice = icons.filter((element) => {
 	 			if(element.type === 'animal'){
 	 			return true;
 	 		}
 	 		return false;
 	 		});
+			
 	 		}else if(this.value === 'vegetable'){
 				choice = icons.filter((element) => {
 					if(element.type === "vegetable"){
@@ -167,6 +168,7 @@ selected.addEventListener("click",//prova funzionamento change
 				}
 				return false;
 	 		});
+			
 	 		} else {
 	 			choice = icons.filter((element) => {
 	 				if(element.type === "user"){
@@ -174,9 +176,10 @@ selected.addEventListener("click",//prova funzionamento change
 	 			}
 	 			return false;
 	 		});
-			
+			 
 			}
-	 		mostratutto(choice);
+			mostratutto(choice);
+		}
 		
 	 }
 );
