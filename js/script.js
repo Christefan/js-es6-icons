@@ -145,7 +145,7 @@ function mostratutto(risultato){
 }
 const selected = document.getElementById('selection');
 
-selected.addEventListener("click",//prova funzionamento change
+selected.addEventListener("change",//prova funzionamento change
 	function() {
 	
 		container.innerHTML="";
