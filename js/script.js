@@ -152,33 +152,10 @@ selected.addEventListener("change",//prova funzionamento change
 		if (this.value === 'all') {
 			mostratutto(icons);
 		}
-		 else{ 
-			if(this.value === 'animal'){
-	 		choice = icons.filter((element) => {
-	 			if(element.type === 'animal'){
-	 			return true;
-	 		}
-	 		return false;
-	 		});
-			
-	 		}else if(this.value === 'vegetable'){
-				choice = icons.filter((element) => {
-					if(element.type === "vegetable"){
-	 				return true;
-				}
-				return false;
-	 		});
-			
-	 		} else {
-	 			choice = icons.filter((element) => {
-	 				if(element.type === "user"){
-	 				return true;
-	 			}
-	 			return false;
-	 		});
-			 
-			}
-			mostratutto(choice);
+		 else{
+	 	const choice = icons.filter((element) => element.type === this.value );
+         console.log(choice)
+	        mostratutto(choice);
 		}
 		
 	 }
